@@ -13,6 +13,11 @@ export type ExtensionInfo = {
     id: string;
     encodings: Encoding[];
     configurable: boolean;
+    /**
+     * 'authoring': the extension only maps its fields in authoring mode (PowerKPIs). On first use, with no
+     * saved settings, the host boots it in authoring mode, lets it save its mapping, then reloads it.
+     */
+    setup?: 'authoring';
 };
 export type MountOptions = {
     /** Extension URL from the Apps for Tableau portal */
@@ -30,6 +35,7 @@ export type MountOptions = {
             name?: string;
         }[];
         configurable?: boolean;
+        setup?: 'authoring';
     };
     /** Encoding id → column(s). Omit to put text columns on the first dimension encoding and numbers on the first measure encoding. */
     fields?: Record<string, string | string[]>;
@@ -79,6 +85,10 @@ export declare class ExtensionViz {
     getSettings(): Settings;
     destroy(): void;
     private start;
+    private settingUp;
+    private extensionSaved;
+    private setupTimers;
+    private clearSetupTimers;
     private saveSettings;
     private notifySettings;
     private onMessage;
