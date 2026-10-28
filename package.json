@@ -1,0 +1,23 @@
+{
+  "name": "@appsfortableau/extension-host",
+  "version": "0.1.1",
+  "description": "Run Apps for Tableau extensions (SuperTables and friends) on any web page, without Tableau.",
+  "type": "module",
+  "main": "dist/extension-host.js",
+  "module": "dist/extension-host.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/extension-host.js"
+    }
+  },
+  "jsdelivr": "dist/extension-host.iife.js",
+  "unpkg": "dist/extension-host.iife.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appsfortableau/aft-extension-host.git"
+  },
+  "homepage": "https://github.com/appsfortableau/aft-extension-host#readme"
+}
