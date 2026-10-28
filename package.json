@@ -1,6 +1,6 @@
 {
   "name": "@appsfortableau/extension-host",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Run Apps for Tableau extensions (SuperTables and friends) on any web page, without Tableau.",
   "type": "module",
   "main": "dist/extension-host.js",
