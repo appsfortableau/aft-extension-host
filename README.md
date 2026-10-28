@@ -9,10 +9,11 @@ This repository contains compiled builds only.
 
 ```html
 <div id="table" style="height:520px"></div>
-<script src="https://cdn.jsdelivr.net/gh/appsfortableau/aft-extension-host@v0.1.1/dist/extension-host.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/appsfortableau/aft-extension-host@v0.1.2/dist/extension-host.iife.js"></script>
 <script>
   AFTExtensions.mount(document.getElementById('table'), {
     url: 'https://extensions-appsfortableau.infotopics.com/login/<your-token>/', // from the portal
+    extension: { id: 'super-tables', encodings: [{ id: 'dimensions', measures: false }, { id: 'measures', measures: true }] },
     data: [{ Region: 'Europe', Sales: 1200 }, { Region: 'Americas', Sales: 950 }],
     storageKey: 'my-dashboard:supertables',
     onSelect: (rows) => console.log('selected', rows),
@@ -23,7 +24,7 @@ This repository contains compiled builds only.
 ## ES module
 
 ```bash
-npm install github:appsfortableau/aft-extension-host#v0.1.1
+npm install github:appsfortableau/aft-extension-host#v0.1.2
 ```
 
 ```js
@@ -34,4 +35,4 @@ import { mount, getEncodings } from '@appsfortableau/extension-host';
 - `mount(el, options)` returns a viz with `setData`, `setMode`, `configure`, `getSettings` and
   `destroy`. All options are typed in `dist/types/index.d.ts`.
 
-Releases are git tags (`v0.1.1`, …). Always pin a tag in production URLs.
+Releases are git tags (`v0.1.2`, …). Always pin a tag in production URLs.

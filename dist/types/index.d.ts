@@ -18,6 +18,19 @@ export type MountOptions = {
     /** Extension URL from the Apps for Tableau portal */
     url: string;
     data: Row[];
+    /**
+     * The extension's encodings, inline. Skips fetching <url>/encoding/encoding.json, which sandboxed
+     * pages (Claude artifacts, ChatGPT canvas) often can't do.
+     */
+    extension?: {
+        id: string;
+        encodings: {
+            id: string;
+            measures: boolean;
+            name?: string;
+        }[];
+        configurable?: boolean;
+    };
     /** Encoding id → column(s). Omit to put text columns on the first dimension encoding and numbers on the first measure encoding. */
     fields?: Record<string, string | string[]>;
     /** Measure → aggregation shown in the extension (default "sum") */
