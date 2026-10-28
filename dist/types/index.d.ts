@@ -43,8 +43,9 @@ export type MountOptions = {
     aggregations?: Record<string, string>;
     /** "authoring" shows the extension's configure option (default "viewing") */
     mode?: 'viewing' | 'authoring';
+    /** Extension settings. They win over saved settings, so a change in code always shows. */
     settings?: Settings;
-    /** Persist settings in localStorage under this key */
+    /** Persist what the extension saves (its own field mapping, for one) in localStorage under this key */
     storageKey?: string;
     userId?: string;
     onSettingsChange?: (settings: Settings) => void;
@@ -86,6 +87,7 @@ export declare class ExtensionViz {
     destroy(): void;
     private start;
     private settingUp;
+    private reportedCanConfigure?;
     private extensionSaved;
     private setupTimers;
     private clearSetupTimers;
